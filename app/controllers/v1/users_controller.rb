@@ -4,7 +4,7 @@ class V1::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render :create
+      render :create, status: :created
     else
       head(:unprocessable_entity)
     end
