@@ -1,6 +1,6 @@
 json.data do
   json.user do
-    json.call(
+    json.(
       @user,
       :email,
       :authentication_token

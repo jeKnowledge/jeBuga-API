@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113033046) do
+ActiveRecord::Schema.define(version: 20171215164517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clash_royales", force: :cascade do |t|
+    t.bigint "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_clash_royales_on_game_id"
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.bigint "clash_royale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clash_royale_id"], name: "index_forums_on_clash_royale_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "games", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "theme_id"
+    t.string "title"
+    t.string "content"
+    t.bigint "upvotess"
+    t.bigint "downvotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["theme_id"], name: "index_posts_on_theme_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.bigint "forum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forum_id"], name: "index_themes_on_forum_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
