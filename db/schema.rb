@@ -10,27 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215164517) do
+ActiveRecord::Schema.define(version: 20171215164243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "clash_royales", force: :cascade do |t|
+  create_table "forums", force: :cascade do |t|
     t.bigint "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_clash_royales_on_game_id"
-  end
-
-  create_table "forums", force: :cascade do |t|
-    t.bigint "clash_royale_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["clash_royale_id"], name: "index_forums_on_clash_royale_id"
+    t.index ["game_id"], name: "index_forums_on_game_id"
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "games", default: [], array: true
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

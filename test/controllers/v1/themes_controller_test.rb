@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ClashRoyaleTest < ActiveSupport::TestCase
+class V1::ThemesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

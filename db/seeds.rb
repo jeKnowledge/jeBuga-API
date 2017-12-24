@@ -11,15 +11,11 @@ User.create(
 end
 
 Game.create!(
-  games: ["Clash Royale"]
-)
-
-ClashRoyale.create!(
-  game_id: Game.first.id
+  name: "Clash Royale"
 )
 
 Forum.create!(
-  clash_royale_id: ClashRoyale.first.id
+  game_id: Game.first.id
 )
 
 Theme.create!(

@@ -1,7 +1,7 @@
 class CreateGames < ActiveRecord::Migration[5.1]
   def change
     create_table :games do |t|
-      t.string :games, array: true, default: []
+      t.string :name
       t.timestamps
     end
   end
