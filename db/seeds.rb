@@ -3,7 +3,7 @@ User.create(
   password: "123456"
 )
 
-10.times do
+5.times do
   User.create!(
     email: Faker::Internet.email,
     password: "123456"
@@ -15,14 +15,30 @@ Game.create!(
 )
 
 Forum.create!(
-  game_id: Game.first.id
+  game_id: 1
 )
 
 Theme.create!(
-  forum_id: Forum.first.id
+  forum_id: 1
 )
-Post.create!(
-  user_id: User.first.id,
-  theme_id: Theme.first.id,
-  content: "Hello my first post"
-)
+
+5.times do
+  Post.create!(
+    user_id: User.limit(User.count).order("RANDOM()").first.id,
+    theme_id: 1,
+    title: Faker::Lorem.sentence(3, true, 5),
+    content: Faker::Lorem.paragraph(3, true, 5),
+    upvotes: Faker::Number.number(2),
+    downvotes: Faker::Number.number(2)
+  )
+end
+
+10.times do
+  Comment.create!(
+    user_id: User.limit(User.count).order("RANDOM()").first.id,
+    post_id: Post.limit(Post.count).order("RANDOM()").first.id,
+    content: Faker::Lorem.paragraph(2, true, 3),
+    upvotes: Faker::Number.number(2),
+    downvotes: Faker::Number.number(2)
+  )
+end

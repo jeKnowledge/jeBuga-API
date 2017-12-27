@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215164243) do
+ActiveRecord::Schema.define(version: 20171224234935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", default: 1
+    t.bigint "post_id", default: 1
+    t.string "content"
+    t.bigint "upvotes", default: 0
+    t.bigint "downvotes", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "forums", force: :cascade do |t|
     t.bigint "game_id"
@@ -29,12 +41,12 @@ ActiveRecord::Schema.define(version: 20171215164243) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "theme_id"
+    t.bigint "user_id", default: 1
+    t.bigint "theme_id", default: 1
     t.string "title"
     t.string "content"
-    t.bigint "upvotess"
-    t.bigint "downvotes"
+    t.bigint "upvotes", default: 0
+    t.bigint "downvotes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["theme_id"], name: "index_posts_on_theme_id"
