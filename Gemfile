@@ -24,8 +24,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise' #, ref: '88e9a85'
 gem 'simple_token_authentication', '~> 1.0'
+gem 'faker'
+gem 'awesome_print', :require => 'ap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

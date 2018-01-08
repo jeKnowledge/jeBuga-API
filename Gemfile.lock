@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/plataformatec/devise
+  revision: 135d898e0e955bfeb539611cf0f575d244275b22
+  specs:
+    devise (4.3.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.2)
+      responders
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +50,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
+    awesome_print (1.8.0)
     bcrypt (3.1.11)
     bcrypt (3.1.11-java)
     bcrypt (3.1.11-x64-mingw32)
@@ -48,13 +60,9 @@ GEM
     concurrent-ruby (1.0.5)
     concurrent-ruby (1.0.5-java)
     crass (1.0.2)
-    devise (4.3.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.2)
-      responders
-      warden (~> 1.2.3)
     erubi (1.7.0)
+    faker (1.8.5)
+      i18n (~> 0.9.1)
     ffi (1.9.18)
     ffi (1.9.18-java)
     ffi (1.9.18-x64-mingw32)
@@ -168,8 +176,10 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  awesome_print
   byebug
-  devise
+  devise!
+  faker
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
@@ -181,4 +191,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
