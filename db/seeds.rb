@@ -1,11 +1,11 @@
 User.create(
-  email: "test@test.com",
+  username: "test",
   password: "123456"
 )
 
 5.times do
   User.create!(
-    email: Faker::Internet.email,
+    username: Faker::Internet.user_name,
     password: "123456"
   )
 end
@@ -19,6 +19,7 @@ Forum.create!(
 )
 
 Theme.create!(
+  name: "Cool Stuff",
   forum_id: 1
 )
 
