@@ -5,7 +5,8 @@ class V1::PostsController < ApplicationController
     if @post.save
       render :create, status: :created
     else
-      head(:unprocessable_entity)
+      @errors = @post.errors
+      render :errors, status: :unprocessable_entity
     end
   end
 
@@ -27,6 +28,6 @@ class V1::PostsController < ApplicationController
 
   private
   def create_post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :user_id, :theme_id)
   end
 end

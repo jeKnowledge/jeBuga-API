@@ -20,7 +20,8 @@ Forum.create!(
 
 Theme.create!(
   name: "Cool Stuff",
-  forum_id: 1
+  forum_id: 1,
+  user_id: 1
 )
 
 5.times do

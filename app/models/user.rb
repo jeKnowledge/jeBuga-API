@@ -9,9 +9,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :username, presence: :true, uniqueness: :true,
-    length: { in: 4..255,
-              too_short: "username too short",
-              too_long: "username too long" }
+    length: { in: 4..255 }
 
   def email_required?
     false

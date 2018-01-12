@@ -5,12 +5,13 @@ class V1::CommentsController < ApplicationController
     if @comment.save
       render :create, status: :created
     else
-      head(:unprocessable_entity)
+      @errors = @user.errors
+      render :errors, status: :unprocessable_entity
     end
   end
 
   private
   def comments_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:post_id, :user_id, :content)
   end
 end
