@@ -1,8 +1,8 @@
 class V1::SessionsController < ApplicationController
   def create
-    @user = User.where(email: params[:email]).first
+   @user = User.where(username: params[:user][:username]).first
 
-    if @user&.valid_password?(params[:password])
+    if @user&.valid_password?(params[:user][:password])
       render :create, status: :created
     else
       head(:unauthorized)

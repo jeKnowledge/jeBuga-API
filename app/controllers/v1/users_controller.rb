@@ -6,12 +6,13 @@ class V1::UsersController < ApplicationController
     if @user.save
       render :create, status: :created
     else
-      head(:unprocessable_entity)
+      @errors = @user.errors
+      render :errors, status: :unprocessable_entity
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 end

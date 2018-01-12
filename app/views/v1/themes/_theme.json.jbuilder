@@ -1,0 +1,4 @@
+json.(
+  theme,
+  :name,
+)
