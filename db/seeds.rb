@@ -1,11 +1,11 @@
-User.create(
+User.create!(
   username: "test",
   password: "123456"
 )
 
 5.times do
   User.create!(
-    username: Faker::Internet.user_name,
+    username: Faker::Internet.user_name(4..10),
     password: "123456"
   )
 end

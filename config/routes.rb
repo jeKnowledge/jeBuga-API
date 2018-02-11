@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create, :destroy]
     resources :themes, only: [:create, :index]
     resources :users, only: [:create]
+    resources :authentications, only: [:create]
   end
 end
