@@ -5,7 +5,7 @@ class V1::CommentsController < ApplicationController
     if @comment.save
       render :create, status: :created
     else
-      @errors = @user.errors
+      @error = @user.errors.full_messages.first
       render :errors, status: :unprocessable_entity
     end
   end

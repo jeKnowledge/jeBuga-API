@@ -5,7 +5,7 @@ class V1::PostsController < ApplicationController
     if @post.save
       render :create, status: :created
     else
-      @errors = @post.errors
+      @error = @post.errors.full_messages.first
       render :errors, status: :unprocessable_entity
     end
   end

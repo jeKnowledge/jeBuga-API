@@ -7,7 +7,7 @@ class V1::UsersController < ApplicationController
     if @user.save
       render :create, status: :created
     else
-      @errors = @user.errors
+      @error = @user.errors.full_messages.first
       render :errors, status: :unprocessable_entity
     end
   end

@@ -1,3 +1,3 @@
 json.data do
-    json.error @user.errors.full_messages
+    json.error @error
 end

@@ -6,7 +6,7 @@ class V1::ThemesController < ApplicationController
     if @theme.save
       render :create, status: :created
     else
-      @errors = @theme.errors
+      @error = @theme.errors.full_messages.first
       render :errors, status: :unprocessable_entity
     end
   end
