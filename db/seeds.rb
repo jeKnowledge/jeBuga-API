@@ -1,11 +1,13 @@
 User.create!(
   username: "test",
-  password: "123456"
+  password: "123456",
+  email: "test@test.com"
 )
 
 5.times do
   User.create!(
     username: Faker::Internet.user_name(4..10),
+    email: Faker::Internet.safe_email,
     password: "123456"
   )
 end
