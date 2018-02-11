@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
+  # Association test
   it { should belong_to(:theme) }
   it { should belong_to(:user) }
   it { should have_many(:comments).dependent(:destroy) }
