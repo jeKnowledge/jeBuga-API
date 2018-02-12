@@ -28,6 +28,6 @@ class V1::PostsController < ApplicationController
 
   private
   def create_post_params
-    params.require(:post).permit(:title, :content, :user_id, :theme_id)
+    params.require(:post).permit(:title, :content, :theme_id).merge(user_id: @current_user.id)
   end
 end

@@ -18,7 +18,7 @@ class V1::ThemesController < ApplicationController
 
   private
   def theme_params
-    params.require(:theme).permit(:name, :forum_id, :user_id)
+    params.require(:theme).permit(:name, :forum_id).merge(user_id: @current_user.id)
   end
 end
 
