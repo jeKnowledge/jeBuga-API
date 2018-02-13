@@ -7,7 +7,7 @@ class V1::ThemesController < ApplicationController
       render :create, status: :created
     else
       @error = @theme.errors.full_messages.first
-      render :errors, status: :unprocessable_entity
+      render partial: 'v1/common/error', status: :unprocessable_entity
     end
   end
 
