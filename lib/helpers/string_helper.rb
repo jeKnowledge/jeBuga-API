@@ -1,8 +1,8 @@
 module StringHelper
 
-  def trim_parentheses(x)
-    while x.gsub!(/\([^()]*\)/,""); end
-    x
+  def trim_parentheses(s)
+    while s.gsub!(/\([^()]*\)/,""); end
+    s.strip
   end
 
 end
