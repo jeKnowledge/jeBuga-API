@@ -7,8 +7,8 @@ class V1::UsersController < ApplicationController
     if @user.save
       render :create, status: :created
     else
-      @error = @user.errors.full_messages.first
-      render :errors, status: :unprocessable_entity
+      @error = trim_parentheses @user.errors.full_messages.first
+      render partial: 'v1/common/error', status: :unprocessable_entity
     end
   end
 
