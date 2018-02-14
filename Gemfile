@@ -28,6 +28,7 @@ gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'simple_command'
+gem 'public_suffix'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

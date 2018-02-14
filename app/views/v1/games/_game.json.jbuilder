@@ -1,4 +1,6 @@
 json.(
   game,
-  :name
+  :name,
+  :thumbnail,
+  :background_image
 )
